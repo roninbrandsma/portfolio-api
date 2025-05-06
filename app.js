@@ -6,7 +6,7 @@ const port = 8080
 app.use(express.json())
 
 const corsOptions = {
-  origin: ['http://localhost:3000', 'http://3.248.191.137:3000/'],
+  origin: ['http://localhost:3000', 'http://3.248.191.137:3000', 'http://3.248.191.137:3000/', 'http://3.248.191.137:3000/*'],
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
