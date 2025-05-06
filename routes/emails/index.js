@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.get('/', async(req, res) => {
     const dbCon = getDBConnection()
-    const collection = await dbCon.collection('reservations')
+    const collection = await dbCon.collection('emails')
     const data = await collection.find().toArray()
     return res.status(200).json(data)
 })
@@ -12,15 +12,12 @@ router.get('/', async(req, res) => {
 router.post('/', async(req, res) => {
     let body = req.body
     const data = {
-        firstName: body.firstName,
-        lastName: body.lastName,
+        name: body.name,
         email: body.email,
-        date: new Date(body.formattedDate),
-        numberOfPeople: Number(body.numberOfPeople),
-        occasion: body.occasion
+        message: body.message
     }
     const dbCon = getDBConnection()
-    const collection = await dbCon.collection('reservations')
+    const collection = await dbCon.collection('emails')
     const insert = await collection.insertOne(data)
     return res.status(200).json(insert)
 })
