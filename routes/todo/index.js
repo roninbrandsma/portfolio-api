@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
   let body = req.body;
   const data = {
-    tasks = body.tasks
+    task: body.task
   };
   const dbCon = getDBConnection();
   const collection = await dbCon.collection('todo');
